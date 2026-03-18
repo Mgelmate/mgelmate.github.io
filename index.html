@@ -150,11 +150,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         details.faq-item[open] summary.faq-pregunta::after { content: '−'; color: var(--marron-cuero); }
         .faq-respuesta { padding: 0 20px 20px 20px; color: var(--marron-texto); line-height: 1.6; border-top: 1px solid var(--crema-oscuro); margin-top: 10px; padding-top: 15px; }
 
+       /* --- OPTIMIZACIÓN PREMIUM PARA CELULARES (RESPONSIVE) --- */
         @media (max-width: 900px) {
-            .historia-faq-seccion { flex-direction: column; padding: 3rem 20px; }
-            .botones-accion { flex-direction: column; } /* En celular los botones de compra se apilan */
+            /* 1. Barra de Navegación */
+            nav { padding: 10px 20px; }
+            .nav-logo span { display: none; } /* Oculta el texto para que el logo circular respire */
+
+            /* 2. Banner Principal (Video y Texto) */
+            .split-banner { 
+                flex-direction: column; 
+                height: auto; 
+            }
+            .split-video { 
+                height: 300px; /* Acorta el video para que el texto principal se vea rápido */
+            }
+            .split-text { 
+                padding: 3rem 1.5rem; 
+                text-align: center; 
+                align-items: center; 
+            }
+            .split-text h2 { 
+                font-size: 2.2rem; /* Achica el título principal para que no se desborde */
+            }
+
+            /* 3. Tarjetas de Productos y Botones */
+            .productos-carrusel { padding: 10px 20px 30px 20px; }
+            .botones-accion { 
+                flex-direction: column; 
+                gap: 8px; 
+            }
+            .btn-mercadopago, .btn-whatsapp { 
+                width: 100%; /* Expande los botones de lado a lado */
+                padding: 12px; /* Los hace más altos para que sea fácil tocarlos con el dedo */
+                box-sizing: border-box;
+            }
+
+            /* 4. Sección de Historia y Preguntas Frecuentes */
+            .historia-faq-seccion { 
+                flex-direction: column; 
+                padding: 3rem 20px; 
+                gap: 30px; 
+            }
+            .historia-recuadro { 
+                padding: 2rem; /* Reduce los márgenes internos para aprovechar la pantalla */
+            }
         }
-                /* --- BOTONES FLOTANTES CORREGIDOS --- */
         .ig-float { 
             position: fixed; bottom: 85px; right: 20px; 
             background: dimgray;
