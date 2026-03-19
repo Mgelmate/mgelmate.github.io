@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu compra! | MG El Mate</title>
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Mantenemos tus colores oficiales */
+        :root {
+            --verde-suculenta: #8fb489; 
+            --marron-cuero: #5d4037;    
+            --crema-fondo: #fcfaf2;     
+            --crema-oscuro: #f2ede0;    
+            --marron-texto: #3e2723;  
+            --dorado-virola: #b59a5d;  
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--crema-fondo);
+            color: var(--marron-texto);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gracias-container {
+            background-color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--dorado-virola);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--verde-suculenta);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--marron-cuero);
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20b858;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .firma {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--verde-suculenta);
+            margin-top: 30px;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--dorado-virola);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .btn-volver:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gracias-container">
+        <img src="logo.jpg" alt="Logo MG El Mate" class="logo">
+        <h1>¡Gracias!</h1>
+        <p>Tu pago se procesó correctamente. Para coordinar el envío o el retiro por Moreno, por favor envianos un mensaje con tu comprobante.</p>
+        
+        <a href="https://wa.me/5491138613404?text=Hola%20Gustavo%20y%20Melody!%20Acabo%20de%20realizar%20una%20compra%20en%20la%20web.%20Les%20paso%20el%20comprobante:" class="btn-whatsapp">
+            Enviar Comprobante por WhatsApp
+        </a>
+
+        <div class="firma">Gustavo & Melody</div>
+
+        <a href="index.html" class="btn-volver">← Volver a la tienda</a>
+    </div>
+
+</body>
+</html>
