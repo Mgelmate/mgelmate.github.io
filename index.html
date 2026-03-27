@@ -294,7 +294,7 @@
     </a>
     <a href="https://wa.me/5491138613404?text=Hola%20Gustavo%20y%20Melody!%20Vi%20la%20web%20y%20quer%C3%ADa%20hacerles%20una%20consulta." class="wa-float" target="_blank">✆</a>
 
-    <script type="module">
+   <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
         import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
 
@@ -325,12 +325,17 @@
                     
                     if (mate.stock > 0) {
                         
-                        // Lógica de los botones adaptada a tu CSS original
+                        // Lógica de los botones y textos
                         let claseBoton = mate.linkPago ? "btn-mercadopago" : "btn-whatsapp";
                         let linkBotones = mate.linkPago ? mate.linkPago : `https://wa.me/5491138613404?text=${encodeURIComponent('Hola! Me interesa el modelo: ' + mate.nombre)}`;
                         let textoBoton = mate.linkPago ? "Comprar con Mercado Pago" : "Consultar por WhatsApp";
+                        
+                        // Texto dinámico para las cuotas o efectivo
+                        let textoAclaracion = mate.linkPago 
+                            ? `<p style="margin: 0 0 12px 0; font-size: 0.85rem; color: #009EE3; font-weight: bold;">💳 Pagá en cuotas con Mercado Pago</p>`
+                            : `<p style="margin: 0 0 12px 0; font-size: 0.85rem; color: #25d366; font-weight: bold;">💵 Consultá descuento en efectivo</p>`;
 
-                        // Estructura HTML que respeta exactamente tus clases y diseño
+                        // Estructura HTML
                         let tarjetaHTML = `
                             <div class="mate-card">
                                 <div class="img-container"><img src="${mate.imagen}" alt="${mate.nombre}"></div>
@@ -339,7 +344,8 @@
                                     <p style="font-size:0.8rem; color:#666;">Stock disponible: <b>${mate.stock} u.</b></p>
                                 </div>
                                 <div class="mate-action">
-                                    <span class="precio">$${mate.precio}</span>
+                                    <span class="precio" style="margin-bottom: 2px;">$${mate.precio}</span>
+                                    ${textoAclaracion}
                                     <div class="botones-accion">
                                         <a href="${linkBotones}" target="_blank" class="${claseBoton}" style="width: 100%;">
                                             ${textoBoton}
