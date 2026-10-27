@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
-       
+        
     <style>
         /* --- VARIABLES DE MARCA --- */
         :root {
@@ -94,8 +94,8 @@
         .precio { font-weight: bold; font-size: 1.3rem; color: var(--marron-cuero); display: block; margin-bottom: 12px; }
         
         .botones-accion { display: flex; gap: 10px; justify-content: center; width: 100%; margin-top: 10px; }
-        .btn-mercadopago { background: #009EE3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: 0.3s; flex: 1; text-align: center; }
-        .btn-mercadopago:hover { background: #007eb5; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: 0.3s; flex: 1; text-align: center; }
+        .btn-instagram:hover { opacity: 0.9; transform: translateY(-2px); }
         .btn-whatsapp { background: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: 0.3s; }
         .btn-whatsapp:hover { background: #20b858; }
 
@@ -145,7 +145,7 @@
             .split-text h2 { font-size: 2.2rem; }
             .productos-carrusel { padding: 10px 20px 30px 20px; }
             .botones-accion { flex-direction: column; gap: 8px; }
-            .btn-mercadopago, .btn-whatsapp { width: 100%; padding: 12px; box-sizing: border-box; }
+            .btn-instagram, .btn-whatsapp { width: 100%; padding: 12px; box-sizing: border-box; }
             .historia-faq-seccion { flex-direction: column; padding: 3rem 20px; gap: 30px; }
             .historia-recuadro { padding: 2rem; }
         }
@@ -301,7 +301,7 @@
         const firebaseConfig = {
             apiKey: "AIzaSyD2yHIQLU_VMPRmRJxytVUS6FzlYi36UnY",
             authDomain: "mg-el-mate.firebaseapp.com",
-            databaseURL: "https://mg-el-mate-default-rtdb.firebaseio.com", /* <-- ESTA ES LA RUTA QUE FALTABA */
+            databaseURL: "https://mg-el-mate-default-rtdb.firebaseio.com",
             projectId: "mg-el-mate",
             storageBucket: "mg-el-mate.firebasestorage.app",
             messagingSenderId: "755897073105",
@@ -326,13 +326,15 @@
                     if (mate.stock > 0) {
                         
                         // Lógica de los botones y textos
-                        let claseBoton = mate.linkPago ? "btn-mercadopago" : "btn-whatsapp";
-                        let linkBotones = mate.linkPago ? mate.linkPago : `https://wa.me/5491138613404?text=${encodeURIComponent('Hola! Me interesa el modelo: ' + mate.nombre)}`;
-                        let textoBoton = mate.linkPago ? "Comprar con Mercado Pago" : "Consultar por WhatsApp";
+                        let claseBoton = mate.linkPago ? "btn-instagram" : "btn-whatsapp";
                         
-                        // Texto dinámico para las cuotas o efectivo
+                        // Redirige directamente al chat de Instagram para que la IA inicie o reciba la interacción.
+                        let linkBotones = mate.linkPago ? "https://ig.me/m/mgelmate" : `https://wa.me/5491138613404?text=${encodeURIComponent('Hola! Me interesa el modelo: ' + mate.nombre)}`;
+                        let textoBoton = mate.linkPago ? "Consultar por Instagram" : "Consultar por WhatsApp";
+                        
+                        // Texto dinámico para las aclaraciones
                         let textoAclaracion = mate.linkPago 
-                            ? `<p style="margin: 0 0 12px 0; font-size: 0.85rem; color: #009EE3; font-weight: bold;">💳 Pagá en cuotas con Mercado Pago</p>`
+                            ? `<p style="margin: 0 0 12px 0; font-size: 0.85rem; color: #cc2366; font-weight: bold;">🤖 Asistencia y compra por IA</p>`
                             : `<p style="margin: 0 0 12px 0; font-size: 0.85rem; color: #25d366; font-weight: bold;">💵 Consultá descuento en efectivo</p>`;
 
                         // Estructura HTML
